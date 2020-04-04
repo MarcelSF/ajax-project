@@ -8,13 +8,6 @@
 
 // Remember: JSON = JavaScript Object Notation
 
-const request = 'http://www.omdbapi.com/?i=tt3896198&apikey=3a8bd6c2&s=lord+of+the+rings'
-fetch(request)
-  .then(response => response.json())
-  .then((data) => {
-    console.log(data);
-  });
-
 
 // My API function
 const myApiFunction = () => {
@@ -58,3 +51,19 @@ const searchAlgoliaPlaces = (event) => {
 
 const algolia = document.querySelector("#algolia");
 algolia.addEventListener("keyup", searchAlgoliaPlaces);
+
+
+// ALGOLIA PLACES (POST)
+// const searchAlgoliaPlaces = (event) => {
+//   fetch("https://places-dsn.algolia.net/1/places/query", {
+//     method: "POST",
+//     body: JSON.stringify({ query: event.currentTarget.value })
+//   })
+//     .then(response => response.json())
+//     .then((data) => {
+//       console.log(data.hits); // Look at local_names.default
+//     });
+// };
+
+// const algolia = document.querySelector("#algolia");
+// algolia.addEventListener("keyup", searchAlgoliaPlaces);

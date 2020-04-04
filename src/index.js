@@ -6,10 +6,22 @@
 
 // My API function
 const myApiFunction = () => {
-  const input = "";
-  const request = `http://www.omdbapi.com/?i=tt3896198&apikey=3a8bd6c2&s=${'???'}`
+  const input = document.querySelector('#input').value;
+  const request = `http://www.omdbapi.com/?i=tt3896198&apikey=3a8bd6c2&s=${input}`
   console.log(request)
-  // fetch
+  fetch(request)
+    .then(response => response.json())
+    .then((data) => {
+      const movies = document.querySelector('.movies');
+      movies.innerHTML = '';
+      data.Search.forEach((result) => {
+        const movie = `<li class="list-inline-item">
+            <img src="${result.Poster}" alt="">
+            <p>${result.Title}</p>
+          </li>`;
+        movies.insertAdjacentHTML("beforeend", movie)
+      })
+    });
   //  then response
   //  then data
   //  then do something with the data
@@ -19,34 +31,11 @@ const myApiFunction = () => {
 const input = document.querySelector('#form');
 // #2 Add the event listener with the correct callback
 input.addEventListener('submit', (event) => {
+  event.preventDefault();
   myApiFunction();
 });
 
 
 
-
-
-
-
-
-
-
-
-
-
-// ALGOLIA PLACES (POST)
-// const searchAlgoliaPlaces = (event) => {
-//   fetch("https://places-dsn.algolia.net/1/places/query", {
-//     method: "POST",
-//     body: JSON.stringify({ query: event.currentTarget.value })
-//   })
-//     .then(response => response.json())
-//     .then((data) => {
-//       console.log(data.hits); // Look at local_names.default
-//     });
-// };
-
-// const algolia = document.querySelector("#algolia");
-// algolia.addEventListener("keyup", searchAlgoliaPlaces);
 
 
