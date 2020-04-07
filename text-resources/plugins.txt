@@ -1,0 +1,24 @@
+ES6 modular design HOW TO:
+
+Organizing your own JS code:
+
+1 - Create file responsible for a specific behavior: load_movies.js
+
+2 - Code your desired functions and export them
+
+3 - Import and initialize the functions in your main entry file (index.js)
+
+
+How to use Plugins (third party libraries):
+
+1- yarn add PLUGIN (typed.js, sortable.js, etc)
+
+2- create init_plugin.js file (src/plugins/init_plugin.js, or lib/plugins/init_plugin.js)
+
+3- import in application.js and initialize your code.
+
+Breaking down step #2:
+
+  2.1 - import plugin
+  2.2 - create function with desired behavior
+  2.3 - export function
