@@ -3,6 +3,8 @@
 // adf1f2d7
 // 48727053
 // 8691812a
+
+// Insert Movies function
 const insertMovies = (data) => {
   const movies = document.querySelector('.movies');
         movies.innerHTML = '';
@@ -24,9 +26,8 @@ const myApiFunction = () => {
     .then(insertMovies);
 }
 
-// #1 find the element
 const input = document.querySelector('#form');
-// #2 Add the event listener with the correct callback
+
 input.addEventListener('submit', (event) => {
   event.preventDefault();
   myApiFunction();
